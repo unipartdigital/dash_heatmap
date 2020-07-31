@@ -1,0 +1,7 @@
+include dash_heatmap/dash_heatmap.min.js
+include dash_heatmap/dash_heatmap.min.js.map
+include dash_heatmap/metadata.json
+include dash_heatmap/package-info.json
+include README.md
+include LICENSE
+include package.json

@@ -1,0 +1,266 @@
+{
+  "src/lib/components/DashHeatmap.react.js": {
+    "description": "DashHeatmap calls the init component\nSeperated out so props are more visable",
+    "displayName": "DashHeatmap",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The id of the SVG"
+      },
+      "width": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The width of the SVG container (%)"
+      },
+      "svg": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The SVG image."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The data object that generates the SVG"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": "Object that holds the loading state object coming from dash-renderer"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Additional CSS classes for the heatmap root div element"
+      }
+    }
+  },
+  "src/lib/components/heatmap/button.js": {
+    "description": "",
+    "displayName": "Button",
+    "methods": [],
+    "props": {
+      "title": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The title of the Button"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The CSS class(es)"
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The ID"
+      },
+      "onClick": {
+        "type": {
+          "name": "func"
+        },
+        "required": true,
+        "description": "The onClick function"
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": true,
+        "description": "Children"
+      }
+    }
+  },
+  "src/lib/components/heatmap/heatmap.js": {
+    "description": "Heatmap component.\nIt takes an warehouse layout (svg) \nand overlays the data supplied",
+    "displayName": "Heatmap",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The id of the SVG"
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "The width of the SVG"
+      },
+      "svg": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The SVG image."
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "The data object that generates the SVG"
+      }
+    }
+  },
+  "src/lib/components/heatmap/initHeatmap.js": {
+    "description": "InitHeatmap calls the Heatmap component\nwith the svg, width and data",
+    "displayName": "InitHeatmap",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The id of the SVG"
+      },
+      "svg": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The SVG image."
+      },
+      "data": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "colour_map": {
+              "name": "object",
+              "required": true
+            },
+            "bays": {
+              "name": "arrayOf",
+              "value": {
+                "name": "shape",
+                "value": {
+                  "label": {
+                    "name": "string",
+                    "required": true
+                  },
+                  "metric": {
+                    "name": "number",
+                    "required": true
+                  },
+                  "speed": {
+                    "name": "string",
+                    "required": true
+                  },
+                  "desc": {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "shape",
+                      "value": {
+                        "label": {
+                          "name": "string",
+                          "required": true
+                        },
+                        "metric": {
+                          "name": "number",
+                          "required": true
+                        }
+                      }
+                    },
+                    "required": true
+                  }
+                }
+              },
+              "required": true
+            }
+          }
+        },
+        "required": true,
+        "description": "The data object that generates the SVG"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/heatmap/mapKey.js": {
+    "description": "Map Key Components",
+    "displayName": "MapKey",
+    "methods": [],
+    "props": {
+      "colorMap": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "The colorMap object"
+      }
+    }
+  },
+  "src/lib/components/heatmap/svgControls.js": {
+    "description": "Zoom and Pan Controls Component",
+    "displayName": "SvgControls",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The id of the SVG"
+      },
+      "zoom": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": "The zoom object"
+      }
+    }
+  }
+}
