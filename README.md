@@ -1,19 +1,44 @@
 # Dash Heatmap
 
-Dash Heatmap is a Dash component library.
+Dash Heatmap to display Warehouse stock movement frequency
 
-Get started with:
-1. Install Dash and its dependencies: https://dash.plotly.com/installation
-2. Run `python usage.py`
-3. Visit http://localhost:8050 in your web browser
+## Quickstart
 
-## Contributing
+```
+pip install dash-heatmap
+```
 
-We welcome contributions to Dash Heatmap. If you find a bug or have ideas for new features please feel free to make a New Issue or submit a pull request.
+```python
+import dash
+import dash_heatmap
+import json
 
-### Install dependencies
+app = dash.Dash(__name__)
 
-If you have selected install_dependencies during the prompt, you can skip this part.
+# NB: Usually add data via filters and callbacks
+with open('./assets/data/lmTest.json') as test_data:
+    data = json.load(test_data)
+
+app.layout = dash_heatmap.DashHeatmap(
+    id='my-warehouse',
+    width='100%',
+    svg='../../assets/svg/test.svg', # Path relative to JavaScript imports
+    data=data # Optional prop
+)
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+```
+
+![Dash Heatmap](https://user-images.githubusercontent.com/28781401/89284131-3694d600-d646-11ea-80fb-868832a805fb.png)
+
+### Reference
+
+See a list of all of the [Heatmap properties](./reference.md).
+
+### Development
+
+Install dependencies
 
 1. Install npm packages
     ```
@@ -30,15 +55,15 @@ If you have selected install_dependencies during the prompt, you can skip this p
     ```
     $ pip install -r requirements.txt
     ```
-4. Install the python packages for testing (optional)
+4. Install the python packages for testing
     ```
     $ pip install -r tests/requirements.txt
     ```
 
-### Write your component code in `src/lib/components/DashHeatmap.react.js`.
+### Running the Demo
 
 - The demo app is in `src/demo`
-- To run the demo and undertake React developement with static data
+- To run the demo
 
     1. npm run start
 
@@ -69,11 +94,6 @@ If you have selected install_dependencies during the prompt, you can skip this p
     - Build the JavaScript with `$ npm run build`
     - Ensure you have completed Step 4. of the Install dependancies
     - Run the tests with `$ pytest tests`.
-    - The Dash team uses these types of integration tests extensively. Browse the Dash component code on GitHub for more examples of testing (e.g. https://github.com/plotly/dash-core-components)
-- Add custom styles to your component by putting your custom CSS files into your distribution folder (`dash_heatmap`).
-    - Make sure that they are referenced in `MANIFEST.in` so that they get properly included when you're ready to publish your component.
-    - Make sure the stylesheets are added to the `_css_dist` dict in `dash_heatmap/__init__.py` so dash will serve them automatically when the component suite is requested.
-- [Review your code](./review_checklist.md)
 
 ### Create a production build and publish:
 
@@ -89,10 +109,10 @@ If you have selected install_dependencies during the prompt, you can skip this p
 
 3. Test your tarball by copying it into a new environment and installing it locally:
     ```
-    $ pip install dash_heatmap-0.0.1.tar.gz
+    $ pip install dash_heatmap-[VERSION].tar.gz
     ```
 
-4. If it works, then you can publish the component to NPM and PyPI:
+4. If it works, authorised users can publish the component to PyPI:
     1. Publish on PyPI
         ```
         $ twine upload dist/*
@@ -101,13 +121,7 @@ If you have selected install_dependencies during the prompt, you can skip this p
         ```
         $ rm -rf dist
         ```
-    3. Publish on NPM (Optional if chosen False in `publish_on_npm`)
-        ```
-        $ npm publish
-        ```
-        _Publishing your component to NPM will make the JavaScript bundles available on the unpkg CDN. By default, Dash serves the component library's CSS and JS locally, but if you choose to publish the package to NPM you can set `serve_locally` to `False` and you may see faster load times._
 
-5. Share your component with the community! https://community.plotly.com/c/dash
-    1. Publish this repository to GitHub
-    2. Tag your GitHub repository with the plotly-dash tag so that it appears here: https://github.com/topics/plotly-dash
-    3. Create a post in the Dash community forum: https://community.plotly.com/c/dash
+### Contributing
+
+We welcome contributions to Dash Heatmap. If you find a bug or have ideas for new features please feel free to make a New Issue or submit a pull request.
