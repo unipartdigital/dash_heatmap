@@ -8,7 +8,7 @@
 
 * The id of the SVG bay element *must* match the data dict bays label
 * The id of the SVG bay element description *should* be prepended with 'text-' then match the data dict bays label
-* Any valid SVG element can be drawn in your warehouee plan.
+* Any valid SVG element can be drawn in your warehouse plan.
 * [Inkscape](https://inkscape.org/) is a reasonable SVG editor
 
 * Example
